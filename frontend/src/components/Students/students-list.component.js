@@ -36,7 +36,8 @@ class StudentsList extends Component {
             // console.log(this.students);
 
             students.map((student, index) => (
-              <li className="list-group-item" key={student.userId}>
+              <li className="list-group-item" key={student.studentId}>
+                {student.studentId} {"- "}
                 {student.userId} {"- "}
                 {student.firstName} {"- "}
                 {student.lastName} {"- "}
@@ -47,17 +48,17 @@ class StudentsList extends Component {
                 {student.yearEnrolled} {"- "}
                 {student.nationality}
                 <Link
-                  to={"/students/" + student.userId}
-                  className="badge badge-warning"
+                  to={"/students/" + student.studentId}
+                  className="btn btn-sm btn-link"
                 >
                   Edit
                 </Link>
-                <button
+                {/* <button
                   className="btn btn-sm btn-link"
                   onClick={() => this.setActiveStudent(student, student.userId)}
                 >
                   See more
-                </button>
+                </button> */}
               </li>
             ))
           ) : (

@@ -12,7 +12,7 @@ class StudentDetails extends Component {
 
     this.state = {
       currentStudent: {
-        studentId: "",
+        // studentId: "",
         firstName: "",
         lastName: "",
         emailAddress: "",
@@ -74,8 +74,23 @@ class StudentDetails extends Component {
 
     return (
       <div>
+        <br />
+        <h4>Student detail #{currentStudent.userId}</h4>
+        <br />
         {currentStudent ? (
           <div className="row">
+            {/* <div className="form-group col-md-6">
+              <label htmlFor="title">studentId</label>
+              <input
+                type="number"
+                className="form-control"
+                id="studentId"
+                required
+                value={currentStudent.studentId}
+                onChange={(e) => this.onChangeInputField(e, "studentId")}
+                name="studentId"
+              />
+            </div> */}
             <div className="form-group col-md-6">
               <label htmlFor="title">firstName</label>
               <input
@@ -103,7 +118,7 @@ class StudentDetails extends Component {
             <div className="form-group col-md-6">
               <label htmlFor="title">emailAddress</label>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 id="emailAddress"
                 required
@@ -115,7 +130,7 @@ class StudentDetails extends Component {
             <div className="form-group col-md-6">
               <label htmlFor="title">contactNo</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 id="contactNo"
                 required
@@ -127,7 +142,7 @@ class StudentDetails extends Component {
             <div className="form-group col-md-6">
               <label htmlFor="title">courseCode</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 id="courseCode"
                 required
@@ -153,7 +168,7 @@ class StudentDetails extends Component {
             <div className="form-group col-md-6">
               <label htmlFor="title">yearEnrolled</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 id="yearEnrolled"
                 required
@@ -172,18 +187,6 @@ class StudentDetails extends Component {
                 value={currentStudent.nationality}
                 onChange={(e) => this.onChangeInputField(e, "nationality")}
                 name="nationality"
-              />
-            </div>
-            <div className="form-group col-md-6">
-              <label htmlFor="title">studentId</label>
-              <input
-                type="text"
-                className="form-control"
-                id="studentId"
-                required
-                value={currentStudent.studentId}
-                onChange={(e) => this.onChangeInputField(e, "studentId")}
-                name="studentId"
               />
             </div>
 

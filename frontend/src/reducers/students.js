@@ -2,8 +2,6 @@ import {
   CREATE_STUDENT,
   RETRIEVE_STUDENTS,
   UPDATE_STUDENT,
-  // DELETE_TUTORIAL,
-  // DELETE_ALL_TUTORIALS,
 } from "../actions/types";
 
 const initialState = {
@@ -22,32 +20,32 @@ function studentReducer(students = initialState, action) {
     case RETRIEVE_STUDENTS:
       return payload;
 
-    case UPDATE_STUDENT:
-      return students.map((student) => {
-        if (student.userId === payload.userId) {
-          return {
-            ...student,
-            ...payload,
-          };
-        } else {
-          return student;
-        }
-      });
-
     // case UPDATE_STUDENT:
-    //   return {
-    //     ...students,
-    //     students: (students.students || []).map((student) => {
-    //       if (student.userId === payload.userId) {
-    //         return {
-    //           ...student,
-    //           ...payload,
-    //         };
-    //       } else {
-    //         return student;
-    //       }
-    //     }),
-    //   };
+    //   return students.map((student) => {
+    //     if (student.userId === payload.userId) {
+    //       return {
+    //         ...student,
+    //         ...payload,
+    //       };
+    //     } else {
+    //       return student;
+    //     }
+    //   });
+
+    case UPDATE_STUDENT:
+      return {
+        ...students,
+        students: (students.students || []).map((student) => {
+          if (student.studentId === payload.studentId) {
+            return {
+              ...student,
+              ...payload,
+            };
+          } else {
+            return student;
+          }
+        }),
+      };
 
 
 

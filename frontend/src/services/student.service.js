@@ -13,11 +13,9 @@ class StudentDataService {
     return http.post("/students", data);
   }
 
-  update(userId, data) {
-    return http.put(`/students/${userId}`, data);
+  update(studentId, data) {
+    return http.put(`/students/${studentId}`, data);
   }
-
- 
 }
 
 const studentDataServiceInstance = new StudentDataService();

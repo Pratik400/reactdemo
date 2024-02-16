@@ -50,7 +50,7 @@ Student.getAllStudents = (studentId, result) => {
 };
 
 Student.findById = (id, result) => {
-  sql.query(`SELECT * FROM student WHERE userId = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM student WHERE studentId = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -68,9 +68,9 @@ Student.findById = (id, result) => {
   });
 };
 
-Student.updateById = (id, student, result) => {
+Student.updateById = (studentId, student, result) => {
   sql.query(
-    "UPDATE student SET studentId = ?, firstName = ?, lastName = ?, emailAddress = ?, contactNo = ?, courseCode = ?, specialisationCode = ?, yearEnrolled = ?, nationality = ? WHERE userId = ?",
+    "UPDATE student SET  firstName = ?, lastName = ?, emailAddress = ?, contactNo = ?, courseCode = ?, specialisationCode = ?, yearEnrolled = ?, nationality = ?, userId = ? WHERE studentId = ?",
     [
       student.studentId,
       student.firstName,
@@ -81,7 +81,8 @@ Student.updateById = (id, student, result) => {
       student.specialisationCode,
       student.yearEnrolled,
       student.nationality,
-      userId,
+      student.userId,
+      studentId,
     ],
     (err, res) => {
       if (err) {
@@ -91,13 +92,13 @@ Student.updateById = (id, student, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Tutorial with the userId
+        // not found Tutorial with the studentId
         result({ kind: "not_found" }, null);
         return;
       }
 
-      console.log("updated student: ", { id: userId, ...tutorial });
-      result(null, { id: userId, ...tutorial });
+      console.log("updated student: ", { studentId: studentId, ...tutorial });
+      result(null, { studentId: studentId, ...tutorial });
     }
   );
 };

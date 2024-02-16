@@ -10,6 +10,7 @@ import StudentDataService from "../services/student.service";
 
 export const createStudent =
   (
+    studentId,
     firstName,
     lastName,
     emailAddress,
@@ -23,7 +24,7 @@ export const createStudent =
   async (dispatch) => {
     try {
       const res = await StudentDataService.create({
-        // studentId,
+        studentId,
         firstName,
         lastName,
         emailAddress,
@@ -61,9 +62,9 @@ export const retrieveStudents = () => async (dispatch) => {
   }
 };
 
-export const updateStudent = (userId, data) => async (dispatch) => {
+export const updateStudent = (studentId, data) => async (dispatch) => {
   try {
-    const res = await StudentDataService.update(userId, data);
+    const res = await StudentDataService.update(studentId, data);
 
     dispatch({
       type: UPDATE_STUDENT,

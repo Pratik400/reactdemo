@@ -9,7 +9,7 @@ class AddStudent extends Component {
     this.saveStudent = this.saveStudent.bind(this);
 
     this.state = {
-      studentId: null,
+      studentId: "",
       firstName: "",
       lastName: "",
       emailAddress: "",
@@ -24,6 +24,7 @@ class AddStudent extends Component {
 
   saveStudent() {
     const {
+      studentId,
       firstName,
       lastName,
       emailAddress,
@@ -37,6 +38,7 @@ class AddStudent extends Component {
 
     this.props
       .createStudent(
+        studentId,
         firstName,
         lastName,
         emailAddress,
@@ -72,7 +74,7 @@ class AddStudent extends Component {
   resetState() {
     // Reset the state to its initial values
     this.setState({
-      studentId: null,
+      studentId: "",
       firstName: "",
       lastName: "",
       emailAddress: "",
@@ -104,6 +106,18 @@ class AddStudent extends Component {
         ) : ( */}
         <div className="row">
           <div className="form-group col-md-6">
+            <label htmlFor="title">studentId</label>
+            <input
+              type="number"
+              className="form-control"
+              id="studentId"
+              required
+              value={this.state.studentId}
+              onChange={(e) => this.onChangeInputField(e, "studentId")}
+              name="studentId"
+            />
+          </div>
+          <div className="form-group col-md-6">
             <label htmlFor="title">firstName</label>
             <input
               type="text"
@@ -130,7 +144,7 @@ class AddStudent extends Component {
           <div className="form-group col-md-6">
             <label htmlFor="title">emailAddress</label>
             <input
-              type="text"
+              type="email"
               className="form-control"
               id="emailAddress"
               required
@@ -142,7 +156,7 @@ class AddStudent extends Component {
           <div className="form-group col-md-6">
             <label htmlFor="title">contactNo</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="contactNo"
               required
@@ -154,7 +168,7 @@ class AddStudent extends Component {
           <div className="form-group col-md-6">
             <label htmlFor="title">courseCode</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="courseCode"
               required
@@ -166,7 +180,7 @@ class AddStudent extends Component {
           <div className="form-group col-md-6">
             <label htmlFor="title">specialisationCode</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="specialisationCode"
               required
@@ -178,7 +192,7 @@ class AddStudent extends Component {
           <div className="form-group col-md-6">
             <label htmlFor="title">yearEnrolled</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="yearEnrolled"
               required
@@ -202,7 +216,7 @@ class AddStudent extends Component {
           <div className="form-group col-md-6">
             <label htmlFor="title">userId</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="userId"
               required
