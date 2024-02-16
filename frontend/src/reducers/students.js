@@ -49,11 +49,7 @@ function studentReducer(students = initialState, action) {
     //     }),
     //   };
 
-    // case DELETE_TUTORIAL:
-    //   return tutorials.filter(({ id }) => id !== payload.id);
 
-    // case DELETE_ALL_TUTORIALS:
-    //   return [];
 
     default:
       return students;

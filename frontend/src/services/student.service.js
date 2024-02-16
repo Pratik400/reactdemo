@@ -17,17 +17,7 @@ class StudentDataService {
     return http.put(`/students/${userId}`, data);
   }
 
-  // delete(id) {
-  //   return http.delete(`/tutorials/${id}`);
-  // }
-
-  // deleteAll() {
-  //   return http.delete(`/tutorials`);
-  // }
-
-  // findByTitle(title) {
-  //   return http.get(`/tutorials?title=${title}`);
-  // }
+ 
 }
 
 const studentDataServiceInstance = new StudentDataService();

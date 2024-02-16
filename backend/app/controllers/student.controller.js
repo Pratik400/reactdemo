@@ -11,7 +11,7 @@ exports.createStudents = (req, res) => {
 
   // Create a student
   const student = new Student({
-    // studentId: req.body.studentId,
+    studentId: req.body.studentId,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     emailAddress: req.body.emailAddress,
@@ -91,45 +91,6 @@ exports.updateStudent = (req, res) => {
   });
 };
 
-// // find all published Tutorials
-// exports.findAllPublished = (req, res) => {
-//   Tutorial.getAllPublished((err, data) => {
-//     if (err)
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving tutorials.",
-//       });
-//     else res.send(data);
-//   });
-// };
 
 
 
-// // Delete a Tutorial with the specified id in the request
-// exports.delete = (req, res) => {
-//   Tutorial.remove(req.params.id, (err, data) => {
-//     if (err) {
-//       if (err.kind === "not_found") {
-//         res.status(404).send({
-//           message: `Not found Tutorial with id ${req.params.id}.`,
-//         });
-//       } else {
-//         res.status(500).send({
-//           message: "Could not delete Tutorial with id " + req.params.id,
-//         });
-//       }
-//     } else res.send({ message: `Tutorial was deleted successfully!` });
-//   });
-// };
-
-// // Delete all Tutorials from the database.
-// exports.deleteAll = (req, res) => {
-//   Tutorial.removeAll((err, data) => {
-//     if (err)
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while removing all tutorials.",
-//       });
-//     else res.send({ message: `All Tutorials were deleted successfully!` });
-//   });
-// };
