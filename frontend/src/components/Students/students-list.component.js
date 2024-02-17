@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { retrieveStudents, selectStudent } from "../../actions/students";
+import { retrieveStudents } from "../../actions/students";
 import { Link } from "react-router-dom";
 
 class StudentsList extends Component {
