@@ -9,11 +9,14 @@ module.exports = (app) => {
   // Retrieve all students
   router.get("/", students.findAllStudents);
 
-  // Retrieve a single Tutorial with id
+  // Retrieve a single students with id
   router.get("/:id", students.findOneStudents);
 
-  // Update a Tutorial with id
+  // Update a students with id
   router.put("/:id", students.updateStudent);
+
+  // Delete a students with id
+  router.delete("/:studentId", students.delete);
 
   app.use("/api/students", router);
 };

@@ -2,6 +2,7 @@ import {
   CREATE_STUDENT,
   RETRIEVE_STUDENTS,
   UPDATE_STUDENT,
+  DELETE_STUDENT,
 } from "../actions/types";
 
 const initialState = {
@@ -47,7 +48,10 @@ function studentReducer(students = initialState, action) {
         }),
       };
 
-
+    case DELETE_STUDENT:
+      return students.filter(
+        ({ studentId }) => studentId !== payload.studentId
+      );
 
     default:
       return students;

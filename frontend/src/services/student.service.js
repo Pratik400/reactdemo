@@ -16,6 +16,10 @@ class StudentDataService {
   update(studentId, data) {
     return http.put(`/students/${studentId}`, data);
   }
+
+  delete(studentId) {
+    return http.delete(`/students/${studentId}`);
+  }
 }
 
 const studentDataServiceInstance = new StudentDataService();

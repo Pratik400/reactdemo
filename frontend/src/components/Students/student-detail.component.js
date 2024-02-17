@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateStudent } from "../../actions/students";
+import { updateStudent, deleteStudent } from "../../actions/students";
 import StudentDataService from "../../services/student.service";
 
 class StudentDetails extends Component {
   constructor(props) {
     super(props);
 
-    // this.saveStudent = this.saveStudent.bind(this);
+    this.removeStudent = this.removeStudent.bind(this);
     this.updateStudentProfile = this.updateStudentProfile.bind(this);
 
     this.state = {
@@ -63,6 +63,17 @@ class StudentDetails extends Component {
       .then((reponse) => {
         console.log(reponse);
         this.setState({ message: "The Student was updated successfully!" });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  removeStudent() {
+    this.props
+      .deleteStudent(this.state.currentStudent.studentId)
+      .then(() => {
+        this.props.history.push("/Studentlist");
       })
       .catch((e) => {
         console.log(e);
@@ -197,6 +208,12 @@ class StudentDetails extends Component {
               >
                 Submit
               </button>
+              <button
+                className="btn btn-danger mr-2"
+                onClick={this.removeStudent}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ) : (
@@ -208,4 +225,4 @@ class StudentDetails extends Component {
 }
 
 // export default StudentDetails;
-export default connect(null, { updateStudent })(StudentDetails);
+export default connect(null, { updateStudent, deleteStudent })(StudentDetails);

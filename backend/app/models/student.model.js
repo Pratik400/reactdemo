@@ -103,4 +103,28 @@ Student.updateById = (studentId, student, result) => {
   );
 };
 
+Student.remove = (studentId, result) => {
+  sql.query(
+    "DELETE FROM student WHERE studentId = ?",
+    studentId,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Tutorial with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("deleted student with studentId: ", studentId);
+      result(null, res);
+    }
+  );
+};
+
+
 module.exports = Student;

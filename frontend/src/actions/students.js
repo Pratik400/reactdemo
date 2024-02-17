@@ -2,8 +2,7 @@ import {
   CREATE_STUDENT,
   RETRIEVE_STUDENTS,
   UPDATE_STUDENT,
-  // DELETE_TUTORIAL,
-  // DELETE_ALL_TUTORIALS,
+  DELETE_STUDENT,
 } from "./types";
 
 import StudentDataService from "../services/student.service";
@@ -76,5 +75,18 @@ export const updateStudent = (studentId, data) => async (dispatch) => {
     console.error("Axios error on the frontend:", err);
     console.error("Request URL:", err.config.url); // Log the request URL
     return Promise.reject(err);
+  }
+};
+
+export const deleteStudent = (studentId) => async (dispatch) => {
+  try {
+    await StudentDataService.delete(studentId);
+
+    dispatch({
+      type: DELETE_STUDENT,
+      payload: { studentId },
+    });
+  } catch (err) {
+    console.log(err);
   }
 };
