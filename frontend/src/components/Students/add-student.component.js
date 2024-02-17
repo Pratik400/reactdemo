@@ -66,6 +66,9 @@ class AddStudent extends Component {
         // Reset the state after successful form submission
         this.resetState();
       })
+      .then(() => {
+        this.props.history.push("/Studentlist");
+      })
       .catch((e) => {
         console.log(e);
       });

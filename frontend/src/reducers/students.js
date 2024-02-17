@@ -49,6 +49,10 @@ function studentReducer(students = initialState, action) {
       };
 
     case DELETE_STUDENT:
+      if (!Array.isArray(students)) {
+        // handle the case where students is not an array
+        return students;
+      }
       return students.filter(
         ({ studentId }) => studentId !== payload.studentId
       );
