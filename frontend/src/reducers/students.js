@@ -23,7 +23,8 @@ function studentReducer(students = initialState, action) {
 
     // case UPDATE_STUDENT:
     //   return students.map((student) => {
-    //     if (student.userId === payload.userId) {
+    //     console.log(student);
+    //     if (student.studentId === payload.studentId) {
     //       return {
     //         ...student,
     //         ...payload,

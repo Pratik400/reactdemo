@@ -64,16 +64,13 @@ export const retrieveStudents = () => async (dispatch) => {
 export const updateStudent = (studentId, data) => async (dispatch) => {
   try {
     const res = await StudentDataService.update(studentId, data);
-
     dispatch({
       type: UPDATE_STUDENT,
       payload: data,
     });
-
     return Promise.resolve(res.data);
   } catch (err) {
     console.error("Axios error on the frontend:", err);
-    console.error("Request URL:", err.config.url); // Log the request URL
     return Promise.reject(err);
   }
 };

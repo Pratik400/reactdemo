@@ -49,24 +49,23 @@ class AddStudent extends Component {
         nationality,
         userId
       )
-      .then((data) => {
-        // this.setState({
-        //   studentId: data.studentId,
-        //   firstName: data.firstName,
-        //   lastName: data.lastName,
-        //   emailAddress: data.emailAddress,
-        //   contactNo: data.contactNo,
-        //   courseCode: data.courseCode,
-        //   specialisationCode: data.specialisationCode,
-        //   yearEnrolled: data.yearEnrolled,
-        //   nationality: data.nationality,
-        //   userId: data.userId,
-        // });
-        console.log(data);
-        // Reset the state after successful form submission
-        this.resetState();
-      })
       .then(() => {
+        // // this.setState({
+        // //   studentId: data.studentId,
+        // //   firstName: data.firstName,
+        // //   lastName: data.lastName,
+        // //   emailAddress: data.emailAddress,
+        // //   contactNo: data.contactNo,
+        // //   courseCode: data.courseCode,
+        // //   specialisationCode: data.specialisationCode,
+        // //   yearEnrolled: data.yearEnrolled,
+        // //   nationality: data.nationality,
+        // //   userId: data.userId,
+        // // });
+        // console.log(data);
+        // // Reset the state after successful form submission
+        this.resetState();
+        alert("The Student was Added successfully!");
         this.props.history.push("/Studentlist");
       })
       .catch((e) => {
@@ -99,6 +98,9 @@ class AddStudent extends Component {
   render() {
     return (
       <div className="student-form">
+        <br />
+        <h4>ADD NEW STUDENT</h4>
+        <br />
         {/* {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
@@ -107,7 +109,7 @@ class AddStudent extends Component {
             </button>
           </div>
         ) : ( */}
-        <div className="row">
+        <div className="row border pt-3 pb-3">
           <div className="form-group col-md-6">
             <label htmlFor="title">studentId</label>
             <input

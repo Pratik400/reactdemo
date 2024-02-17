@@ -70,9 +70,8 @@ Student.findById = (id, result) => {
 
 Student.updateById = (studentId, student, result) => {
   sql.query(
-    "UPDATE student SET  firstName = ?, lastName = ?, emailAddress = ?, contactNo = ?, courseCode = ?, specialisationCode = ?, yearEnrolled = ?, nationality = ?, userId = ? WHERE studentId = ?",
+    "UPDATE student SET firstName = ?, lastName = ?, emailAddress = ?, contactNo = ?, courseCode = ?, specialisationCode = ?, yearEnrolled = ?, nationality = ?, userId = ? WHERE studentId = ?",
     [
-      student.studentId,
       student.firstName,
       student.lastName,
       student.emailAddress,
@@ -97,8 +96,8 @@ Student.updateById = (studentId, student, result) => {
         return;
       }
 
-      console.log("updated student: ", { studentId: studentId, ...tutorial });
-      result(null, { studentId: studentId, ...tutorial });
+      console.log("updated student: ", { studentId: studentId, ...studentId });
+      result(null, { studentId: studentId, ...studentId });
     }
   );
 };

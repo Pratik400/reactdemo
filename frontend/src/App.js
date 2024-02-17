@@ -12,7 +12,8 @@ class App extends Component {
     return (
       <Router>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={""} className="navbar-brand">
+          <Link to={"/"} className="navbar-brand">
+            {" "}
             Homepage
           </Link>
           <div className="navbar-nav mr-auto">
@@ -33,6 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/addStudent" component={AddStudent} />
             <Route exact path="/Studentlist" component={StudentsList} />
+            <Route exact path="/" component={StudentsList} />
             <Route exact path="/students/:id" component={StudentDetails} />
           </Switch>
         </div>

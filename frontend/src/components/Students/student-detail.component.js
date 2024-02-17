@@ -57,15 +57,14 @@ class StudentDetails extends Component {
   updateStudentProfile() {
     this.props
       .updateStudent(
-        this.state.currentStudent.userId,
+        this.state.currentStudent.studentId,
         this.state.currentStudent
       )
       .then((reponse) => {
-        console.log(reponse);
-        this.setState({ message: "The Student was updated successfully!" });
+        alert("The Student was updated successfully!");
       })
       .catch((e) => {
-        console.log(e);
+        console.log("updateStudentProfile()" + e);
       });
   }
 
@@ -86,10 +85,13 @@ class StudentDetails extends Component {
     return (
       <div>
         <br />
-        <h4>Student detail #{currentStudent.userId}</h4>
+        <h4>
+          Student detail studentId #{currentStudent.studentId} userId #
+          {currentStudent.userId}
+        </h4>
         <br />
         {currentStudent ? (
-          <div className="row">
+          <div className="row row border pt-3 pb-3">
             {/* <div className="form-group col-md-6">
               <label htmlFor="title">studentId</label>
               <input
@@ -201,12 +203,12 @@ class StudentDetails extends Component {
               />
             </div>
 
-            <div className="col-12">
+            <div className="col-12 ">
               <button
                 onClick={this.updateStudentProfile}
-                className="btn btn-success"
+                className="btn btn-success mr-3"
               >
-                Submit
+                UPDATE
               </button>
               <button
                 className="btn btn-danger mr-2"

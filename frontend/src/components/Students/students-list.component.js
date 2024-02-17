@@ -30,8 +30,10 @@ class StudentsList extends Component {
 
     return (
       <div>
-        <p>Student List</p>
-        <ul>
+        <br />
+        <h4>Student LIST</h4>
+        <br />
+        <ul className="p-0">
           {students && Array.isArray(students) ? (
             // console.log(this.students);
 
