@@ -96,8 +96,8 @@ Student.updateById = (studentId, student, result) => {
         return;
       }
 
-      console.log("updated student: ", { studentId: studentId, ...studentId });
-      result(null, { studentId: studentId, ...studentId });
+      console.log("updated student: ", { studentId: studentId, ...student });
+      result(null, { id: studentId, ...student });
     }
   );
 };
@@ -124,6 +124,5 @@ Student.remove = (studentId, result) => {
     }
   );
 };
-
 
 module.exports = Student;
