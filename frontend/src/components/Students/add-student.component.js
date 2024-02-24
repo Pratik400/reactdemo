@@ -66,7 +66,7 @@ class AddStudent extends Component {
         // // Reset the state after successful form submission
         this.resetState();
         alert("The Student was Added successfully!");
-        this.props.history.push("/Studentlist");
+        // this.props.history.push("/Studentlist");
       })
       .catch((e) => {
         console.log(e);
