@@ -49,6 +49,14 @@ export const updateStudent = createAsyncThunk(
   }
 );
 
+export const deleteStudent = createAsyncThunk(
+  "students/delete",
+  async ({ id }) => {
+    await StudentDataService.remove(id);
+    return { id };
+  }
+);
+
 const studentSlice = createSlice({
   name: "students",
   initialState,
@@ -72,6 +80,10 @@ const studentSlice = createSlice({
           ...state[index],
           ...action.payload,
         };
+      })
+      .addCase(deleteStudent.fulfilled, (state, action) => {
+        let index = state.findIndex(({ id }) => id === action.payload.id);
+        state.splice(index, 1);
       });
   },
 });

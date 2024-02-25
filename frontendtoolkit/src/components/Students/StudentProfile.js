@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import StudentService from "../../services/StudentService";
-import { updateStudent } from "../../slices/students";
+import { updateStudent, deleteStudent } from "../../slices/students";
 import { useDispatch } from "react-redux";
 
 const StudentProfile = () => {
@@ -26,6 +26,7 @@ const StudentProfile = () => {
 
   const [currentStudent, setCurrentStudent] = useState(initialStudentState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getStudent = (id) => {
     StudentService.get(id)
@@ -58,6 +59,17 @@ const StudentProfile = () => {
       .unwrap()
       .then((response) => {
         console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const removeStudent = () => {
+    dispatch(deleteStudent({ id: currentStudent.studentId }))
+      .unwrap()
+      .then(() => {
+        navigate("/getAllStudent");
       })
       .catch((e) => {
         console.log(e);
@@ -181,16 +193,13 @@ const StudentProfile = () => {
             <button onClick={updateStudentProfile} className="btn btn-success">
               Submit
             </button>
-            <button
-              className="btn btn-danger mr-2"
-              // onClick={this.removeStudent}
-            >
+            <button className="btn btn-danger mr-2" onClick={removeStudent}>
               Delete
             </button>
           </div>
         </div>
       ) : (
-        <p>aaa</p>
+        <p>No Students</p>
       )}
     </div>
   );

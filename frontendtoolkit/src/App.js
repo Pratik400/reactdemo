@@ -12,8 +12,7 @@ function App() {
     <Router>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
-          {" "}
-          Homepage
+          Student List
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -21,11 +20,11 @@ function App() {
               Add Student
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link to={"/getAllStudent"} className="nav-link">
               Student List
             </Link>
-          </li>
+          </li> */}
         </div>
       </nav>
 
@@ -33,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/addStudent" element={<AddStudent />} />
           <Route path="/getAllStudent" element={<StudentList />} />
+          <Route path="/" element={<StudentList />} />
           <Route path="/students/:id" element={<StudentProfile />} />
         </Routes>
       </div>

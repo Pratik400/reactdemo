@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createStudent } from "../../slices/students";
-// import StudentService from "../services/StudentService";
+import { useNavigate } from "react-router-dom";
 
 const AddStudent = () => {
   const initialStudentState = {
@@ -19,6 +19,7 @@ const AddStudent = () => {
   const [student, setStudent] = useState(initialStudentState);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // onChangeInputField(e, fieldName) {
   //   this.setState({
@@ -61,9 +62,11 @@ const AddStudent = () => {
       .then((data) => {
         console.log(data);
         setStudent(data);
-        // setSubmitted(true);
       })
-      .then(() => resetStudent())
+      .then(() => {
+        resetStudent();
+        navigate("/getAllStudent");
+      })
       .catch((e) => {
         console.log(e);
       });

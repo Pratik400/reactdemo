@@ -18,11 +18,16 @@ const update = (id, data) => {
   return http.put(`/students/${id}`, data);
 };
 
+const remove = (id) => {
+  return http.delete(`/students/${id}`);
+};
+
 const StudentService = {
   create,
   getAll,
   get,
   update,
+  remove,
 };
 
 export default StudentService;
